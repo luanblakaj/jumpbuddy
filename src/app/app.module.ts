@@ -9,9 +9,14 @@ import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
 
+
 import { Items } from '../mocks/providers/items';
 import { Settings, User, Api } from '../providers';
 import { MyApp } from './app.component';
+import { WarmupPage } from '../pages/warmup/warmup';
+import { ActivePage } from '../pages/active/active';
+import { CooldownPage } from '../pages/cooldown/cooldown';
+import { WeightsPage } from '../pages/weights/weights';
 
 // The translate loader needs to know where to load i18n files
 // in Ionic's static asset pipeline.
@@ -36,7 +41,11 @@ export function provideSettings(storage: Storage) {
 
 @NgModule({
   declarations: [
-    MyApp
+    MyApp,
+    WarmupPage,
+    ActivePage,
+    CooldownPage,
+    WeightsPage
   ],
   imports: [
     BrowserModule,
@@ -53,7 +62,11 @@ export function provideSettings(storage: Storage) {
   ],
   bootstrap: [IonicApp],
   entryComponents: [
-    MyApp
+    MyApp,
+    WarmupPage,
+    ActivePage,
+    CooldownPage,
+    WeightsPage
   ],
   providers: [
     Api,

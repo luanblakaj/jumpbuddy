@@ -1,0 +1,46 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Warmups</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content>
+    <ion-card>
+          <ion-item>
+            <ion-avatar item-start>
+              <img src="assets/imgs/b.jpeg">
+            </ion-avatar>
+            <h2>Marty McFly</h2>
+            <p>November 5, 1955</p>
+          </ion-item>
+        
+          <img class="big" src="assets/imgs/4.jpg">
+        
+          <ion-card-content>
+            <p>Wait a minute. Wait a minute, Doc. Uhhh... Are you telling me that you built a time machine... out of a DeLorean?! Whoa. This is heavy.</p>
+          </ion-card-content>
+        
+          <ion-row>
+            <ion-col>
+              <button ion-button icon-start clear small (click)="doAlert()">
+                <ion-icon name="alarm"></ion-icon>
+                <div>Remind me!</div>
+              </button>
+            </ion-col>
+            <ion-col>
+              <button ion-button icon-start clear small>
+                <ion-icon name="trash"></ion-icon>
+                <div>Dismiss</div>
+              </button>
+            </ion-col>
+            <ion-col align-self-center text-center>
+              <ion-note>
+                Luan Blakaj
+              </ion-note>
+            </ion-col>
+          </ion-row>
+        </ion-card>
+  </ion-content>

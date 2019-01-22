@@ -12,24 +12,38 @@
 
 </ion-header>
 
-<ion-content>
-
-  <ion-list>
-    <ion-item-sliding *ngFor="let item of currentItems">
-      <button ion-item (click)="openItem(item)">
-        <ion-avatar item-start>
-          <img [src]="item.profilePic" />
-        </ion-avatar>
-        <h2>{{item.name}}</h2>
-        <p>{{item.about}}</p>
-        <ion-note item-end *ngIf="item.note">{{item.note}}</ion-note>
-      </button>
-
-      <ion-item-options>
-        <button ion-button color="danger" (click)="deleteItem(item)">
-          {{ 'DELETE_BUTTON' | translate }}
-        </button>
-      </ion-item-options>
-    </ion-item-sliding>
-  </ion-list>
-</ion-content>
+<ion-content class="card-background-page">
+    <ion-refresher class="align" pullMin="100" (ionRefresh)="doRefresh($event)">
+      <ion-refresher-content class="refresh"
+        pullingText="<br>Release to refresh!"
+        refreshingSpinner="crescent"
+        refreshingText="<br>Getting the new workouts... 💪">
+      </ion-refresher-content>
+      </ion-refresher>
+    
+    <ion-card (click)="openWarmup()">
+      <img src="/assets/img/stretch.jpg"/>
+      <div class="card-title">Warmups</div>
+      <div class="card-subtitle"><br>4 Exercises</div>
+    </ion-card>
+  
+    <ion-card (click)="openActive()">
+      <img src="/assets/img/straight.jpg"/>
+      <div class="card-title">Active</div>
+      <div class="card-subtitle"><br>4 Exercises</div>
+    </ion-card>
+  
+    <ion-card (click)="openWeights()">
+      <img src="/assets/img/weights.jpg"/>
+      <div class="card-title">With Weights</div>
+      <div class="card-subtitle"><br>2 Exercises</div>
+    </ion-card>
+  
+    <ion-card (click)="openCooldown()">
+      <img src="/assets/img/cooldown.jpg"/>
+      <div class="card-title">Cooldown</div>
+      <div class="card-subtitle"><br>8 Exercises</div>
+    </ion-card>
+  
+  </ion-content>
+  
