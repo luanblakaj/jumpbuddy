@@ -6,11 +6,14 @@ page-warmup {
     .item {
         background: #B1C2B3;
     }
-    h2, p{
+    h2, p, h1{
         color: white !important;
     }
     .big{
         border-radius: 30px;
         padding: 2%;
+    }
+    h1{
+        text-align: left;
     }
 }

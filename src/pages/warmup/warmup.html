@@ -8,39 +8,37 @@
 
 
 <ion-content>
-    <ion-card>
-          <ion-item>
+  <ion-list no-lines>
+    <ion-card *ngFor="let thing of cardz; let i = index;">
+        <ion-item>
             <ion-avatar item-start>
-              <img src="assets/imgs/b.jpeg">
+                <img src="{{thing.ppsrc}}">
             </ion-avatar>
-            <h2>Marty McFly</h2>
-            <p>November 5, 1955</p>
-          </ion-item>
-        
-          <img class="big" src="assets/imgs/4.jpg">
-        
-          <ion-card-content>
-            <p>Wait a minute. Wait a minute, Doc. Uhhh... Are you telling me that you built a time machine... out of a DeLorean?! Whoa. This is heavy.</p>
-          </ion-card-content>
-        
-          <ion-row>
-            <ion-col>
-              <button ion-button icon-start clear small (click)="doAlert()">
-                <ion-icon name="alarm"></ion-icon>
-                <div>Remind me!</div>
+            <h2 (click)="openHome()">{{thing.name}}</h2>
+            <p>23 Jan 2019</p>
+        </ion-item>
+        <img class="big" src={{thing.isrc}}>
+      <ion-card-content>
+        <h1>{{thing.title}}</h1>  
+        <p>{{thing.content}}</p>
+      </ion-card-content>
+  
+      <ion-row>
+          <ion-col>
+              <button ion-button icon-start clear small (click)="reminder()">
+                  <ion-icon name="alarm"></ion-icon>
+                  <div>Remind me!</div>
               </button>
-            </ion-col>
-            <ion-col>
-              <button ion-button icon-start clear small>
-                <ion-icon name="trash"></ion-icon>
-                <div>Dismiss</div>
+          </ion-col>
+          <ion-col>
+              <button ion-button icon-start clear small (click)="Done(i);">
+                  <ion-icon name="done-all"></ion-icon>
+                  <div>Done</div>
               </button>
-            </ion-col>
-            <ion-col align-self-center text-center>
-              <ion-note>
-                Luan Blakaj
-              </ion-note>
-            </ion-col>
-          </ion-row>
-        </ion-card>
+          </ion-col>
+          <ion-col align-self-center text-center>
+          </ion-col>
+      </ion-row>
+    </ion-card>
+  </ion-list>
   </ion-content>
