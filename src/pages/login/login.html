@@ -8,11 +8,13 @@
 
 
 <ion-content>
+  <div class="logobox">
+  <img src="assets/img/logo_text.png" class="logo" alt="">
   <form (submit)="doLogin()">
     <ion-list>
 
       <ion-item>
-        <ion-label fixed>{{ 'EMAIL' | translate }}</ion-label>
+        <ion-label floating>{{ 'EMAIL' | translate }}</ion-label>
         <ion-input type="email" [(ngModel)]="account.email" name="email"></ion-input>
       </ion-item>
 
@@ -26,7 +28,7 @@
       -->
 
       <ion-item>
-        <ion-label fixed>{{ 'PASSWORD' | translate }}</ion-label>
+        <ion-label floating>{{ 'PASSWORD' | translate }}</ion-label>
         <ion-input type="password" [(ngModel)]="account.password" name="password"></ion-input>
       </ion-item>
 
@@ -36,4 +38,5 @@
 
     </ion-list>
   </form>
+  </div>
 </ion-content>

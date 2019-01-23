@@ -10,6 +10,7 @@ page-search {
       
       .item-bold {
         font-weight: bold;
+        text-align: right !important;
       }
       
       ion-content.cards-bg {
@@ -21,4 +22,7 @@ page-search {
       p{
           color: white !important;
       }
+    .right{
+      text-align: right !important;
+    }
 }
