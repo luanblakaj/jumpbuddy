@@ -14,7 +14,7 @@ export class TabsPage {
   tab2Root: any = Tab2Root;
   tab3Root: any = Tab3Root;
 
-  tab1Title = " ";
+  tab1Title = "Workout";
   tab2Title = " ";
   tab3Title = " ";
 
