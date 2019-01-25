@@ -17,6 +17,7 @@ import { WarmupPage } from '../pages/warmup/warmup';
 import { ActivePage } from '../pages/active/active';
 import { CooldownPage } from '../pages/cooldown/cooldown';
 import { WeightsPage } from '../pages/weights/weights';
+import { TrainerDetailPage } from '../pages/trainer-detail/trainer-detail';
 
 // The translate loader needs to know where to load i18n files
 // in Ionic's static asset pipeline.
@@ -45,7 +46,8 @@ export function provideSettings(storage: Storage) {
     WarmupPage,
     ActivePage,
     CooldownPage,
-    WeightsPage
+    WeightsPage,
+    TrainerDetailPage
   ],
   imports: [
     BrowserModule,
@@ -66,7 +68,8 @@ export function provideSettings(storage: Storage) {
     WarmupPage,
     ActivePage,
     CooldownPage,
-    WeightsPage
+    WeightsPage,
+    TrainerDetailPage
   ],
   providers: [
     Api,
