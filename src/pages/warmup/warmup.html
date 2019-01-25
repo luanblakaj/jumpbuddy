@@ -24,12 +24,7 @@
       </ion-card-content>
   
       <ion-row>
-          <ion-col>
-              <button ion-button icon-start clear small (click)="reminder()">
-                  <ion-icon name="alarm"></ion-icon>
-                  <div>Remind me!</div>
-              </button>
-          </ion-col>
+          
           <ion-col>
               <button ion-button icon-start clear small (click)="Done(i);">
                   <ion-icon name="done-all"></ion-icon>
@@ -37,6 +32,12 @@
               </button>
           </ion-col>
           <ion-col align-self-center text-center>
+          </ion-col>
+          <ion-col>
+              <button ion-button icon-start clear small (click)="later()">
+                  <ion-icon name="alarm"></ion-icon>
+                  <div>Do later...</div>
+              </button>
           </ion-col>
       </ion-row>
     </ion-card>

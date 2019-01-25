@@ -42,7 +42,7 @@ export class WarmupPage {
     console.log('ionViewDidLoad WarmupPage');
   }
 
-  reminder() {
+  later() {
     let alert = this.alerCtrl.create({
       title: 'Reminder Set!',
       message: 'We&apos;ll remind you!',
