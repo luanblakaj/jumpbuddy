@@ -10,7 +10,7 @@
 <ion-content>
   <ion-list no-lines>
     <ion-card *ngFor="let thing of cardz; let i = index;">
-        <ion-item (click)="openTrainer(i)">
+        <ion-item (click)="openTrainer(thing)">
             <ion-avatar item-start>
                 <img src="{{thing.ppsrc}}">
             </ion-avatar>
@@ -19,7 +19,8 @@
         </ion-item>
         <img class="big" src={{thing.isrc}}>
       <ion-card-content>
-        <h1>{{thing.title}}</h1>  
+        <h1>{{thing.title}}
+        </h1>  
         <p>{{thing.content}}</p>
       </ion-card-content>
   

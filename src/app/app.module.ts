@@ -34,7 +34,7 @@ export function provideSettings(storage: Storage) {
    */
   return new Settings(storage, {
     option1: true,
-    option2: 'Ionitron J. Framework',
+    option2: 'Your Name',
     option3: '3',
     option4: 'Hello'
   });
@@ -47,7 +47,7 @@ export function provideSettings(storage: Storage) {
     ActivePage,
     CooldownPage,
     WeightsPage,
-    TrainerDetailPage
+    TrainerDetailPage,
   ],
   imports: [
     BrowserModule,
@@ -69,7 +69,7 @@ export function provideSettings(storage: Storage) {
     ActivePage,
     CooldownPage,
     WeightsPage,
-    TrainerDetailPage
+    TrainerDetailPage,
   ],
   providers: [
     Api,

@@ -30,4 +30,9 @@ export class TrainerDetailPage {
     console.log('ionViewDidLoad TrainerDetailPage');
   }
 
+  goback() {
+    this.navCtrl.pop();
+    console.log('Click on button Test Console Log');
+ }
+
 }

@@ -36,3 +36,9 @@ button{
 .item-md h2{
     color: #F5FCD0;
 }
+.header-md::after{
+    height: 0px;
+}
+.header-ios .toolbar-background-ios, .footer-ios .toolbar-background-ios{
+    border-color: rgba(255, 255, 255, 0);
+}

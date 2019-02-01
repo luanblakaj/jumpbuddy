@@ -1,3 +1,51 @@
 page-trainer-detail {
 
+    h1{
+        color: white;
+        font-weight: bold;
+        text-align: center !important;
+        top: 0%; left: 32%;
+        font-size: 23.5px;
+      }
+      
+      h2{
+        color: white;
+        font-weight: bold;
+        text-align: center !important;
+        font-size: 18px;
+      }
+      
+      h3{
+        color: white;
+        font-weight: bold;
+        text-align: center !important;
+        font-size: 15px;
+      }
+      
+      p{
+        position: absolute; left: 5%; top: 13%;
+        font-size: 20px;
+        font-weight: bold;
+        color: white;
+      }
+      
+      .avatar{
+        width: 10em;
+        height : 10em;
+        margin: 2%;
+        border:2px solid #C99792;
+        border-radius: 50%;
+        display: block !important;
+        margin-left: auto !important;
+        margin-right: auto !important;
+        left: 33%; top: 4%;
+      }
+      
+      .card-background-page2{
+        background: linear-gradient(#778691 60%, #C99792);
+      }
+
+      button{
+          align-content: center;
+      }
 }
