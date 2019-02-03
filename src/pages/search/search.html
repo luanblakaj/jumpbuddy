@@ -89,7 +89,26 @@
         <span ion-text item-start color="secondary" class="item-bold">26 min</span>
         <span ion-text item-start color="subtle">(8.1 mi)</span>
       </ion-item>
-    
     </ion-card>
-    
+
+    <div *ngFor="let item of data">
+    <ion-card>
+      <div style="position: relative">
+        <img src="assets/img/map_fitnessplus.jpg">
+        <ion-fab right top>
+          <button ion-fab class="fab-map">
+            <ion-icon name='pin'></ion-icon>
+          </button>
+        </ion-fab>
+      </div>
+      <ion-item>
+        <ion-icon color="subtle" large item-start name='walk'></ion-icon>
+        <h2>{{item.name.first}}</h2>
+        <p>Dornacherstrasse 20, 4053 Basel, BS</p>
+      </ion-item>
+      <ion-item actions>
+        <span ion-text item-start color="secondary" class="item-bold">near you</span>
+      </ion-item>    
+    </ion-card>
+  </div>
 </ion-content>

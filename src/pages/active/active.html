@@ -7,12 +7,47 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title>active</ion-title>
+    <ion-title>Active Exercises</ion-title>
   </ion-navbar>
 
 </ion-header>
 
 
-<ion-content padding>
+<ion-content>
+  <ion-list no-lines>
+    <ion-card *ngFor="let thing of cardz; let i = index;">
+        <ion-item (click)="openTrainer(thing)">
+            <ion-avatar item-start>
+                <img src="{{thing.ppsrc}}">
+            </ion-avatar>
+            <h2>{{thing.name}}</h2>
+            <p>23 Jan 2019</p>
+        </ion-item>
+        <img class="big" src={{thing.isrc}}>
+      <ion-card-content>
+        <h1>{{thing.title}}
+        </h1>  
+        <p>{{thing.content}}</p>
+      </ion-card-content>
+  
+      <ion-row>
+          
+          <ion-col>
+              <button ion-button icon-start clear small (click)="Done(i);">
+                  <ion-icon name="done-all"></ion-icon>
+                  <div>Done</div>
+              </button>
+          </ion-col>
+          <ion-col align-self-center text-center>
+          </ion-col>
+          <ion-col>
+              <button ion-button icon-start clear small (click)="later(i)">
+                  <ion-icon name="alarm"></ion-icon>
+                  <div>Do later...</div>
+              </button>
+          </ion-col>
+      </ion-row>
+    </ion-card>
+  </ion-list>
+  </ion-content>
 
-</ion-content>
