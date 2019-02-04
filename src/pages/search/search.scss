@@ -12,17 +12,17 @@ page-search {
         font-weight: bold;
         text-align: right !important;
       }
-      
-      ion-content.cards-bg {
-        background-color: #f4f4f7;
-      }
       .card{
           border-radius: 40px;
+          background: wheat;
       }
       p{
           color: white !important;
       }
     .right{
       text-align: right !important;
+    }
+    .red{
+      color: #C99792;
     }
 }

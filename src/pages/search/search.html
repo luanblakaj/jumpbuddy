@@ -8,26 +8,10 @@
 
 
 <ion-content class="cards-bg">
-    <ion-list>
-        <ion-item>
-          <ion-label>Where do you live?</ion-label>
-          <ion-select [ngModel]="city">
-            <ion-option value="bs">Basel</ion-option>
-           <!-- <ion-option value="be">Bern</ion-option>
-            <ion-option value="ge">Genf</ion-option>
-            <ion-option value="la">Lausanne</ion-option>
-            <ion-option value="lu">Luzern</ion-option>
-            <ion-option value="ti">Lugano</ion-option>
-            <ion-option value="sg">St. Gallen</ion-option>
-            <ion-option value="th">Thun</ion-option>
-            <ion-option value="zh">Zurich</ion-option> -->
-          </ion-select>
-        </ion-item>
-      </ion-list>
-
-    <ion-card class="adv-map">
+  <ion-list no-lines>
+    <ion-card class="adv-map" *ngFor="let thing of cardz; let i = index;">
       <div style="position: relative">
-        <img src="assets/img/map_fitnessplus.jpg">
+        <img src="{{thing.map}}">
         <ion-fab right top>
           <button ion-fab class="fab-map">
             <ion-icon name='pin'></ion-icon>
@@ -36,79 +20,15 @@
       </div>
       <ion-item>
         <ion-icon color="subtle" large item-start name='walk'></ion-icon>
-        <h2>fitnessplus Basel</h2>
-        <p>Dornacherstrasse 20, 4053 Basel, BS</p>
+        <h2>{{thing.title}}</h2>
+        <p>{{thing.address}}</p>
       </ion-item>
       <ion-item actions>
-        <span ion-text item-start color="secondary" class="item-bold">near you</span>
-      </ion-item>
-    
-    </ion-card>
-    
-    <ion-card class="adv-map">
-      <div style="position: relative">
-        <img src="assets/img/map_fitorama.jpg">
-    
-        <ion-fab right top>
-          <button ion-fab color="danger" class="fab-map">
-            <ion-icon name="pin"></ion-icon>
-          </button>
-        </ion-fab>
-      </div>
-      <ion-item>
-        <ion-icon color="subtle" large item-start name='walk'></ion-icon>
-        <h2>Fitorama AG Fitness Center</h2>
-        <p>Lange Gasse 90, 4052 Basel, BS</p>
-      </ion-item>
-      <ion-item actions class="right">
-        <span ion-text item-start color="secondary" class="item-bold">near you</span>
-      </ion-item>
-    
-    </ion-card>
-    
-    <ion-card class="adv-map">
-      <div style="position: relative">
-        <img src="assets/imgs/map.png">
-        <ion-fab right top>
-          <button ion-fab color="secondary">
-            <ion-icon name="pin"></ion-icon>
-          </button>
-        </ion-fab>
-      </div>
-      <ion-item>
-        <ion-icon color="subtle" large item-start name='information-circle'></ion-icon>
-        <h2>Museum of Information</h2>
-        <p>44 Rue de Info, 75010 Paris, France</p>
-      </ion-item>
-      <ion-item>
-        <ion-icon color="subtle" large item-start name='leaf'></ion-icon>
-        <h2>General Pharmacy</h2>
-        <p>1 Avenue Faux, 75010 Paris, France</p>
+        <span ion-text item-start color="secondary" class="item-bold">in Basel</span>
       </ion-item>
       <ion-item actions>
-        <span ion-text item-start color="secondary" class="item-bold">26 min</span>
-        <span ion-text item-start color="subtle">(8.1 mi)</span>
+        <span ion-text item-start class="item-bold red">{{thing.warning}}</span>
       </ion-item>
     </ion-card>
-
-    <div *ngFor="let item of data">
-    <ion-card>
-      <div style="position: relative">
-        <img src="assets/img/map_fitnessplus.jpg">
-        <ion-fab right top>
-          <button ion-fab class="fab-map">
-            <ion-icon name='pin'></ion-icon>
-          </button>
-        </ion-fab>
-      </div>
-      <ion-item>
-        <ion-icon color="subtle" large item-start name='walk'></ion-icon>
-        <h2>{{item.name.first}}</h2>
-        <p>Dornacherstrasse 20, 4053 Basel, BS</p>
-      </ion-item>
-      <ion-item actions>
-        <span ion-text item-start color="secondary" class="item-bold">near you</span>
-      </ion-item>    
-    </ion-card>
-  </div>
+  </ion-list>
 </ion-content>
