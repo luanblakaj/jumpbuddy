@@ -12,8 +12,8 @@
     <ion-card class="adv-map" *ngFor="let thing of cardz; let i = index;">
       <div style="position: relative">
         <img src="{{thing.map}}">
-        <ion-fab right top>
-          <button ion-fab class="fab-map">
+        <ion-fab right top >
+          <button ion-fab class="fab-map" onclick="{{thing.link}}">
             <ion-icon name='pin'></ion-icon>
           </button>
         </ion-fab>

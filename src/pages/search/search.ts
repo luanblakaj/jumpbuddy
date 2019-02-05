@@ -12,16 +12,16 @@ export class SearchPage {
   cardz: Array< {}>;
   constructor(public navCtrl: NavController, public navParams: NavParams) {
     this.cardz = [
-      {title: 'Joggeli Fitness Club Basel', address: 'Gellertstrasse 235', map:'https://www.nysc.ch/files/Bilder_Townsport/Intro_Bilder/Joggeli/joggeli_fitness_basel_04.jpg', code: 1},
-      {title: 'Actifit Fitness AG', address: 'Rümelinbachweg 4', map:'https://lh5.googleusercontent.com/p/AF1QipMs9dXrceFskr5pXcHxEwTXf-_hDNksvDrcVLjC=s510-k-no', code: 2, warning: 'Women only!'},
-      {title: 'World-Gym Sportstudio', address: 'Reinacherstrasse 125', map:'https://scontent.fqls1-1.fna.fbcdn.net/v/t1.0-9/15170854_903858609713849_516843602458662774_n.jpg?_nc_cat=104&_nc_ht=scontent.fqls1-1.fna&oh=405b2765ab37c21f140d6d85eca9bab9&oe=5CF9407E', code: 3},
-      {title: 'Indigo Fitness Club', address: 'Sternengasse 19', map:'https://indigofitness.ch/wp-content/uploads/media/INDIGO-BS-NOORD-fitness02-t96214z8dl6syvkmp6wfeo.jpg', code: 4},
-      {title: 'Fitorama AG', address: 'Lange Gasse 90', map:'https://www.fitorama.ch/fileadmin/_processed_/e/6/csm_entry_fitorama_efc_1000x600_d8857256a1.jpg', code: 5},
-      {title: 'basefit.ch AG Basel Clarahuus', address: 'Teichgässlein 9', map:'https://basefit.ch/wp-content/uploads/2017/10/Header-Studio.jpg', code: 6},
-      {title: 'Fitnessplus Basel Ag', address: 'Dornacherstrasse 210', map:'https://lh5.googleusercontent.com/p/AF1QipM7zTO1gyByELylg1Wtwb3EcudzIcgsPp2-KXs7=s510-k-no', code: 7},
-      {title: 'City Sport + Gesundheit AG', address: 'Rebgasse 20', map:'https://www.city-gesundheit.ch/fileadmin/user_upload/City-Gesundheit/Bilder/city_tag2_033.jpg', code: 8},
-      {title: 'basefit.ch Basel St. Johann', address: ' Vogesenstrasse 87', map:'https://lh3.ggpht.com/p/AF1QipPqCB8ByzzXhehY30nWeG5T8q5AeM2rltcGVdOH=s512', code: 9},
-      {title: 'bodyline Dinkel & Mattioli', address: 'Missionsstrasse 52', map:'https://scontent.fqls1-1.fna.fbcdn.net/v/t31.0-8/16402489_750702268415514_7985818162056350500_o.jpg?_nc_cat=110&_nc_ht=scontent.fqls1-1.fna&oh=81b125626230d6fedb155d5d61dcce3a&oe=5CE58BD5', code: 10},
+      {title: 'Joggeli Fitness Club Basel', address: 'Gellertstrasse 235', map:'assets/img/gym/joggeli.jpg', code: 1, link: "window.open('https://maps.app.goo.gl/PnfYL', '_system')"},
+      {title: 'Actifit Fitness AG', address: 'Rümelinbachweg 4', map:'assets/img/gym/actifit.jpg', code: 2, warning: 'Women only!', link: "window.open('https://maps.app.goo.gl/cTdsj', '_system')"},
+      {title: 'World-Gym Sportstudio', address: 'Reinacherstrasse 125', map:'assets/img/gym/world.jpg', code: 3, link: "window.open('https://maps.app.goo.gl/DdNj2', '_system')"},
+      {title: 'Indigo Fitness Club', address: 'Sternengasse 19', map:'assets/img/gym/indigo.jpg', code: 4, link: "window.open('https://maps.app.goo.gl/7efzN', '_system')"},
+      {title: 'Fitorama AG', address: 'Lange Gasse 90', map:'assets/img/gym/fitorama.jpg', code: 5, link: "window.open('https://maps.app.goo.gl/vzeko', '_system')"},
+      {title: 'basefit.ch AG Basel Clarahuus', address: 'Teichgässlein 9', map:'assets/img/gym/basefit.jpg', code: 6, link: "window.open('https://maps.app.goo.gl/97AZU', '_system')"},
+      {title: 'Fitnessplus Basel Ag', address: 'Dornacherstrasse 210', map:'assets/img/gym/fitnessplus.jpg', code: 7, link: "window.open('https://maps.app.goo.gl/LzJmu', '_system')"},
+      {title: 'City Sport + Gesundheit AG', address: 'Rebgasse 20', map:'assets/img/gym/citysport.jpg', code: 8, link: "window.open('https://maps.app.goo.gl/JTYp7', '_system')"},
+      {title: 'basefit.ch Basel St. Johann', address: ' Vogesenstrasse 87', map:'assets/img/gym/basefit1.jpg', code: 9, link: "window.open('https://maps.app.goo.gl/HbfUs', '_system')"},
+      {title: 'bodyline Dinkel & Mattioli', address: 'Missionsstrasse 52', map:'assets/img/gym/bodyline.jpg', code: 10, link: "window.open('https://maps.app.goo.gl/yH1n8', '_system')"},
 
     ];
   } 
