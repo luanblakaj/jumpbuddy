@@ -28,7 +28,7 @@ export class WarmupPage {
       {id: '1',name: 'Trainer B', title: 'Stretch', content: "It is cruicial that you stretch before exercising. You should focus on leg stretches since you'll mainly be training your legs.",code: 2, isrc: "assets/img/stretch_animation.gif", ppsrc: "assets/imgs/b.jpeg"},
       {id: '3',name: 'Luan B.', title: '20x Calf Raises', content: 'Stand with your legs together. Lift yourself onto your toes, then lower yourself down. Move slowly to make the muscles work harder', code: 3, isrc: "assets/img/calves_animation.gif", ppsrc: "assets/imgs/pp.jpg"},
       {id: '4',name: 'Trainer D', title: '15x Squats', content: 'Place your feet hip-width apart, and keep your heels flat on the ground. Slowly lower yourself as far as you can by simply bending your knees while keeping your back erect and your neck straight. Lift back up to starting position', code: 4, isrc: "assets/img/squat_animation.gif", ppsrc: "assets/imgs/pp1.jpg"},
-      {id: '5',name: 'Trainer E', title: '15x Lunges', content: 'Start in a standing position. Take a big step forward, bending your front knee. Lean your body forward with your front knee lined up vertically above your ankle. Rise back to a standing position. Alternate your legs.', code: 5, isrc: "https://i.imgur.com/Xkvlm4B.gif", ppsrc: "assets/imgs/one.jpeg"}
+      {id: '5',name: 'Trainer E', title: '15x Lunges', content: 'Start in a standing position. Take a big step forward, bending your front knee. Lean your body forward with your front knee lined up vertically above your ankle. Rise back to a standing position. Alternate your legs.', code: 5, isrc: "assets/img/character_lunges.gif", ppsrc: "assets/imgs/one.jpeg"}
     ];
   } 
   
