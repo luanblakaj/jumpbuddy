@@ -2,13 +2,6 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, AlertController, ToastController } from 'ionic-angular';
 import { TrainerDetailPage } from '../trainer-detail/trainer-detail'
 
-/**
- * Generated class for the ActivePage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
-
 @IonicPage()
 @Component({
   selector: 'page-active',
