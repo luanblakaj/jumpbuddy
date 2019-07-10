@@ -2,6 +2,7 @@ page-warmup {
     .card{
         border-radius: 20px;
         background: #B1C2B3;
+        z-index: 20;
     }
     .item {
         background: #B1C2B3;
@@ -15,5 +16,12 @@ page-warmup {
     }
     h1{
         text-align: left;
+    }
+    h4{
+        margin: 20px;
+        position: absolute;
+        font-size: 1em;
+        top: 10%;
+        z-index: 10;
     }
 }

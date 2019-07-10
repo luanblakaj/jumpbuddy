@@ -50,8 +50,8 @@ export class TutorialPage {
       });
   }
 
-  startApp() {
-    this.navCtrl.setRoot('WelcomePage', {}, {
+  openTabs() {
+    this.navCtrl.setRoot('TabsPage', {}, {
       animate: true,
       direction: 'forward'
     });

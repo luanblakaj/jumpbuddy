@@ -14,7 +14,7 @@ export class CardsPage {
       {
         user: {
           avatar: 'assets/img/marty-avatar.png',
-          name: 'Marty McFly'
+          name: 'Marty McFly Radius'
         },
         date: 'November 5, 1955',
         image: 'assets/img/advance-card-bttf.png',

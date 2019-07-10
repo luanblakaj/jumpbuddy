@@ -2,7 +2,7 @@
     <ion-navbar>
         <ion-title>Introduction</ion-title>
         <ion-buttons end *ngIf="showSkip">
-            <button ion-button (click)="startApp()" color="primary">{{ 'TUTORIAL_SKIP_BUTTON' | translate}}</button>
+            <button ion-button (click)="openTabs()" color="primary">{{ 'TUTORIAL_SKIP_BUTTON' | translate}}</button>
         </ion-buttons>
     </ion-navbar>
 </ion-header>
@@ -20,7 +20,7 @@
             <img src="assets/img/phone_animation.gif" class="slide-image" />
             <h2 class="slide-title">JumpBuddy</h2>
             <p>Dumb? Sure. Pointless? Of course. But surprising? Not at all. I hate to be a party pooper, but let's face it: Crappy apps are becoming commonplace on the iPhone.</p>
-            <button ion-button icon-end large clear (click)="startApp()">
+            <button ion-button icon-end large clear (click)="openTabs()">
                 <ion-icon name="arrow-forward"></ion-icon>
             </button>
         </ion-slide>
@@ -28,7 +28,7 @@
             <img src="assets/img/screenshot.png" class="slide-image" />
             <h2 class="slide-title">How to use the app</h2>
             <p>When exercising, the idea is that you start with the Warmup and work your way down through the exercises.</p>
-            <button ion-button icon-end large clear (click)="startApp()">
+            <button ion-button icon-end large clear (click)="openTabs()">
                 <ion-icon name="arrow-forward"></ion-icon>
             </button>
         </ion-slide>
@@ -36,7 +36,7 @@
             <img src="assets/img/DoneDoLater.png" class="slide-image"  />
             <h2 class="slide-title">How to use the app</h2>
             <p>When you are done with an exercise, click the small done button in the left bottom corner to dismiss the exercise and move on to the next one. <br>If you want to do an exercise later, just click do later and we will push it down in the queue.</p>
-            <button ion-button icon-end large clear (click)="startApp()">
+            <button ion-button icon-end large clear (click)="openTabs()">
                 <ion-icon name="arrow-forward"></ion-icon>
             </button>
         </ion-slide>
@@ -44,7 +44,7 @@
             <img src="assets/img/character_flying.gif" class="slide-image" style="border-radius: 90px;" />
             <h2 class="slide-title">You are ready to go!</h2>
             <h3>Are you ready to start flying?</h3>
-            <button ion-button icon-end large clear class="visible" (click)="startApp()">
+            <button ion-button icon-end large clear class="visible" (click)="openTabs()">
                 {{ 'TUTORIAL_CONTINUE_BUTTON' | translate }}
                 <ion-icon name="arrow-forward"></ion-icon>
             </button>
