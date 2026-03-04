@@ -1,96 +1,98 @@
-# The Ionic Super Starter 🎮
+# JumpBuddy
 
-<img src="https://user-images.githubusercontent.com/236501/32385619-bddac0ac-c08c-11e7-9ee4-9c892197191f.png" width="400" />
+![JumpBuddy Logo](assets/img/logo_text.png)
 
-The Ionic Super Starter is a batteries-included starter project for Ionic apps
-complete with pre-built pages, providers, and best practices for Ionic
-development.
+## Description
 
-The goal of the Super Starter is to get you from zero to app store faster than
-before, with a set of opinions from the Ionic team around page layout,
-data/user management, and project structure.
+JumpBuddy is a modern Flutter application designed to be your ultimate fitness companion. It provides a wide range of workout exercises, focusing on categories like warm-up, active/strength training, back stabilization, stretching, and cool-down. With JumpBuddy, users can track their progress, manage favorite exercises, and follow structured workout routines to achieve their fitness goals.
 
-The way to use this starter is to pick and choose the various page types you
-want use, and remove the ones you don't. If you want a blank slate, this
-starter isn't for you (use the `blank` type instead).
+## Screenshots
 
-One of the big advances in Ionic was moving from a rigid route-based navigation
-system to a flexible push/pop navigation system modeled off common native SDKs.
-We've embraced this pattern to provide a set of reusable pages that can be
-navigated to anywhere in the app. Take a look at the [Settings
-page](https://github.com/ionic-team/starters/blob/master/ionic-angular/official/super/src/pages/settings/settings.html)
-for a cool example of a page navigating to itself to provide a different UI
-without duplicating code.
+*(Placeholder for app screenshots. Will be added soon!)*
 
-## Table of Contents
+## Features
 
-1. [Getting Started](#getting-started)
-2. [Pages](#pages)
-3. [Providers](#providers)
-4. [i18n](#i18n) (adding languages)
+JumpBuddy comes packed with features to enhance your fitness journey:
 
-## <a name="getting-started"></a>Getting Started
+*   **Workout Categories:** Explore exercises organized into distinct categories such as Warmup, Active/Strength, Back Stabilization, Stretch, and Cooldown.
+*   **Back Stabilization:** Access science-backed core and back stability exercises, including McGill Curl-Up, Side Plank, and Bird-Dog.
+*   **Timer Functionality:** Integrated timers for duration-based exercises.
+*   **Progress Tracking:** Monitor your workout history and track your achievements over time.
+*   **Streaks:** Stay motivated with workout streaks, encouraging consistent exercise habits.
+*   **Favorites:** Mark your preferred exercises for quick access and personalized routines.
+*   **Workout History:** Review past workouts, including exercises performed, sets, repetitions, and durations.
+*   **Gym Finder:** (If applicable, based on `app_provider.dart` content) Locate nearby gyms with detailed information.
+*   **Onboarding Experience:** A guided introduction for new users to get started with the app.
 
-To test this starter out, install the latest version of the Ionic CLI and run:
+## Tech Stack
 
-```bash
-ionic start mySuperApp super
+*   **Framework:** Flutter
+*   **Language:** Dart
+*   **State Management:** Provider
+*   **Font Management:** Google Fonts
+*   **Local Storage:** shared_preferences
+
+## Getting Started
+
+To get a local copy up and running, follow these simple steps.
+
+### Prerequisites
+
+Ensure you have Flutter installed on your system. If not, follow the official Flutter installation guide:
+[Flutter Installation Guide](https://flutter.dev/docs/get-started/install)
+
+### Installation
+
+1.  Clone the repository:
+    ```bash
+    git clone https://github.com/luanblakaj/jumpbuddy.git
+    ```
+2.  Navigate to the project directory:
+    ```bash
+    cd jumpbuddy
+    ```
+3.  Checkout the `branch_2026` branch:
+    ```bash
+    git checkout branch_2026
+    ```
+4.  Install Flutter dependencies:
+    ```bash
+    flutter pub get
+    ```
+5.  Run the app:
+    ```bash
+    flutter run
+    ```
+
+## Project Structure
+
+```
+jumpbuddy/
+├── lib/
+│   ├── main.dart
+│   ├── models/             # Data models for exercises, categories, etc.
+│   ├── providers/          # State management with Provider
+│   ├── screens/            # UI screens and pages
+│   ├── services/           # Business logic and data fetching
+│   └── theme/              # Application theme and color palette
+├── assets/
+│   ├── img/                # Images, animations, and logos
+│   └── i18n/               # Internationalization files
+├── pubspec.yaml            # Project dependencies and metadata
+├── README.md               # Project README file
+└── ... (other project files)
 ```
 
-## Pages
+## Contributing
 
-The Super Starter comes with a variety of ready-made pages. These pages help
-you assemble common building blocks for your app so you can focus on your
-unique features and branding.
+Contributions are what make the open-source community such an amazing place to learn, inspire, and create. Any contributions you make are **greatly appreciated**.
 
-The app loads with the `FirstRunPage` set to `TutorialPage` as the default. If
-the user has already gone through this page once, it will be skipped the next
-time they load the app.
+1.  Fork the Project
+2.  Create your Feature Branch (`git checkout -b feature/AmazingFeature`)
+3.  Commit your Changes (`git commit -m 'Add some AmazingFeature'`)
+4.  Push to the Branch (`git push origin feature/AmazingFeature`)
+5.  Open a Pull Request
 
-If the tutorial is skipped but the user hasn't logged in yet, the Welcome page
-will be displayed which is a "splash" prompting the user to log in or create an
-account.
+## License
 
-Once the user is authenticated, the app will load with the `MainPage` which is
-set to be the `TabsPage` as the default.
-
-The entry and main pages can be configured easily by updating the corresponding
-variables in
-[src/pages/index.ts](https://github.com/ionic-team/starters/blob/master/ionic-angular/official/super/src/pages/index.ts).
-
-Please read the
-[Pages](https://github.com/ionic-team/starters/tree/master/ionic-angular/official/super/src/pages)
-readme, and the readme for each page in the source for more documentation on
-each.
-
-## Providers
-
-The Super Starter comes with some basic implementations of common providers.
-
-### User
-
-The `User` provider is used to authenticate users through its
-`login(accountInfo)` and `signup(accountInfo)` methods, which perform `POST`
-requests to an API endpoint that you will need to configure.
-
-### Api
-
-The `Api` provider is a simple CRUD frontend to an API. Simply put the root of
-your API url in the Api class and call get/post/put/patch/delete 
-
-## i18n
-
-Ionic Super Starter comes with internationalization (i18n) out of the box with
-[ngx-translate](https://github.com/ngx-translate/core). This makes it easy to
-change the text used in the app by modifying only one file. 
-
-### Adding Languages
-
-To add new languages, add new files to the `src/assets/i18n` directory,
-following the pattern of LANGCODE.json where LANGCODE is the language/locale
-code (ex: en/gb/de/es/etc.).
-
-### Changing the Language
-
-To change the language of the app, edit `src/app/app.component.ts` and modify
-`translate.use('en')` to use the LANGCODE from `src/assets/i18n/`
+Distributed under the MIT License. See `LICENSE` for more information.
