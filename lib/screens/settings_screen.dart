@@ -1,138 +1,208 @@
 import 'package:flutter/material.dart';
-import 'package:shared_preferences/shared_preferences.dart';
+import 'package:provider/provider.dart';
+import '../providers/app_provider.dart';
 import '../theme/app_theme.dart';
-import 'onboarding_screen.dart';
+import 'package:google_fonts/google_fonts.dart';
+import 'exercise_detail_screen.dart';
 
-class SettingsScreen extends StatefulWidget {
+class SettingsScreen extends StatelessWidget {
   const SettingsScreen({super.key});
 
   @override
-  State<SettingsScreen> createState() => _SettingsScreenState();
-}
-
-class _SettingsScreenState extends State<SettingsScreen> {
-  final _nameController = TextEditingController();
-  final _locationController = TextEditingController();
-
-  @override
-  void initState() {
-    super.initState();
-    _loadProfile();
-  }
-
-  Future<void> _loadProfile() async {
-    final prefs = await SharedPreferences.getInstance();
-    setState(() {
-      _nameController.text = prefs.getString('userName') ?? 'Sky Jumper';
-      _locationController.text = prefs.getString('userLocation') ?? 'Basel, Switzerland';
-    });
-  }
-
-  Future<void> _saveProfile() async {
-    final prefs = await SharedPreferences.getInstance();
-    await prefs.setString('userName', _nameController.text);
-    await prefs.setString('userLocation', _locationController.text);
-    if (mounted) {
-      ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(content: Text('Profile saved successfully!')),
-      );
-    }
-  }
-
-  Future<void> _resetOnboarding() async {
-    final prefs = await SharedPreferences.getInstance();
-    await prefs.setBool('showHome', false);
-    if (mounted) {
-      Navigator.of(context).pushAndRemoveUntil(
-        MaterialPageRoute(builder: (context) => const OnboardingScreen()),
-        (route) => false,
-      );
-    }
-  }
-
-  @override
   Widget build(BuildContext context) {
+    final provider = Provider.of<AppProvider>(context);
+
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('User Profile'),
-      ),
-      body: SingleChildScrollView(
-        padding: const EdgeInsets.all(24),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: [
-            const CircleAvatar(
-              radius: 60,
-              backgroundColor: AppTheme.primary,
-              child: Icon(Icons.person, size: 80, color: AppTheme.dark),
-            ),
-            const SizedBox(height: 32),
-            TextField(
-              controller: _nameController,
-              decoration: const InputDecoration(
-                labelText: 'Full Name',
-                border: OutlineInputBorder(),
-                prefixIcon: Icon(Icons.person_outline),
-              ),
-            ),
-            const SizedBox(height: 16),
-            TextField(
-              controller: _locationController,
-              decoration: const InputDecoration(
-                labelText: 'Location',
-                border: OutlineInputBorder(),
-                prefixIcon: Icon(Icons.location_on_outlined),
-              ),
-            ),
-            const SizedBox(height: 32),
-            SizedBox(
-              width: double.infinity,
-              child: ElevatedButton(
-                onPressed: _saveProfile,
-                style: ElevatedButton.styleFrom(
-                  backgroundColor: AppTheme.primary,
-                  foregroundColor: AppTheme.dark,
-                  padding: const EdgeInsets.symmetric(vertical: 16),
+      body: Container(
+        decoration: const BoxDecoration(
+          gradient: AppTheme.backgroundGradient,
+        ),
+        child: SafeArea(
+          child: SingleChildScrollView(
+            padding: const EdgeInsets.all(24.0),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  'Your Profile',
+                  style: GoogleFonts.notoSans(
+                    fontSize: 28,
+                    fontWeight: FontWeight.w800,
+                    color: Colors.white,
+                  ),
                 ),
-                child: const Text('SAVE PROFILE', style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
-              ),
+                const SizedBox(height: 32),
+                _buildProfileHeader(),
+                const SizedBox(height: 32),
+                _buildSectionTitle('Favorites'),
+                const SizedBox(height: 16),
+                _buildFavoritesList(provider, context),
+                const SizedBox(height: 32),
+                _buildSectionTitle('Workout History'),
+                const SizedBox(height: 16),
+                _buildHistoryTimeline(provider),
+                const SizedBox(height: 100),
+              ],
             ),
-            const SizedBox(height: 40),
-            const Divider(),
-            const SizedBox(height: 24),
-            ListTile(
-              leading: const Icon(Icons.language),
-              title: const Text('Language'),
-              subtitle: const Text('English'),
-              trailing: const Icon(Icons.chevron_right),
-              onTap: () {
-                // Language selection logic
-              },
-            ),
-            ListTile(
-              leading: const Icon(Icons.help_outline),
-              title: const Text('Show Tutorial'),
-              onTap: _resetOnboarding,
-            ),
-            ListTile(
-              leading: const Icon(Icons.info_outline),
-              title: const Text('About JumpBuddy'),
-              subtitle: const Text('Version 1.0.0'),
-              onTap: () {
-                showAboutDialog(
-                  context: context,
-                  applicationName: 'JumpBuddy',
-                  applicationVersion: '1.0.0',
-                  applicationIcon: Image.asset('assets/img/appicon.png', width: 50, height: 50),
-                  children: [
-                    const Text('JumpBuddy is a fitness companion app for skydiving enthusiasts.'),
-                  ],
-                );
-              },
-            ),
-          ],
+          ),
         ),
       ),
+    );
+  }
+
+  Widget _buildProfileHeader() {
+    return Container(
+      padding: const EdgeInsets.all(24),
+      decoration: BoxDecoration(
+        color: Colors.white.withOpacity(0.95),
+        borderRadius: BorderRadius.circular(32),
+      ),
+      child: const Row(
+        children: [
+          CircleAvatar(
+            radius: 40,
+            backgroundColor: AppTheme.primary,
+            child: Icon(Icons.person, size: 48, color: AppTheme.dark),
+          ),
+          SizedBox(width: 20),
+          Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text(
+                'JumpBuddy User',
+                style: TextStyle(fontSize: 20, fontWeight: FontWeight.w800, color: AppTheme.dark),
+              ),
+              Text(
+                'Level 12 Athlete',
+                style: TextStyle(color: Colors.grey),
+              ),
+            ],
+          ),
+        ],
+      ),
+    );
+  }
+
+  Widget _buildSectionTitle(String title) {
+    return Text(
+      title,
+      style: GoogleFonts.notoSans(
+        fontSize: 20,
+        fontWeight: FontWeight.w700,
+        color: Colors.white,
+      ),
+    );
+  }
+
+  Widget _buildFavoritesList(AppProvider provider, BuildContext context) {
+    final favorites = provider.exercises.where((e) => provider.favoriteExerciseIds.contains(e.id)).toList();
+
+    if (favorites.isEmpty) {
+      return Container(
+        padding: const EdgeInsets.all(24),
+        decoration: BoxDecoration(
+          color: Colors.white.withOpacity(0.1),
+          borderRadius: BorderRadius.circular(24),
+          border: Border.all(color: Colors.white24),
+        ),
+        child: const Center(
+          child: Text('No favorites yet. Start hearting!', style: TextStyle(color: Colors.white70)),
+        ),
+      );
+    }
+
+    return SizedBox(
+      height: 120,
+      child: ListView.builder(
+        scrollDirection: Axis.horizontal,
+        itemCount: favorites.length,
+        itemBuilder: (context, index) {
+          final exercise = favorites[index];
+          return GestureDetector(
+            onTap: () {
+              Navigator.of(context).push(
+                MaterialPageRoute(
+                  builder: (context) => ExerciseDetailScreen(exercise: exercise),
+                ),
+              );
+            },
+            child: Container(
+              width: 100,
+              margin: const EdgeInsets.only(right: 16),
+              decoration: BoxDecoration(
+                color: Colors.white.withOpacity(0.95),
+                borderRadius: BorderRadius.circular(24),
+              ),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  const Icon(Icons.fitness_center, color: AppTheme.primary, size: 32),
+                  const SizedBox(height: 8),
+                  Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 8.0),
+                    child: Text(
+                      exercise.title,
+                      textAlign: TextAlign.center,
+                      style: const TextStyle(fontSize: 12, fontWeight: FontWeight.w700, color: AppTheme.dark),
+                      maxLines: 2,
+                      overflow: TextOverflow.ellipsis,
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          );
+        },
+      ),
+    );
+  }
+
+  Widget _buildHistoryTimeline(AppProvider provider) {
+    if (provider.workoutHistory.isEmpty) {
+      return const Center(child: Text('No history yet.', style: TextStyle(color: Colors.white70)));
+    }
+
+    return Column(
+      children: provider.workoutHistory.reversed.map((entry) {
+        return Container(
+          margin: const EdgeInsets.only(bottom: 16),
+          padding: const EdgeInsets.all(20),
+          decoration: BoxDecoration(
+            color: Colors.white.withOpacity(0.15),
+            borderRadius: BorderRadius.circular(24),
+            border: Border.all(color: Colors.white24),
+          ),
+          child: Row(
+            children: [
+              Container(
+                padding: const EdgeInsets.all(12),
+                decoration: BoxDecoration(
+                  color: AppTheme.primary.withOpacity(0.2),
+                  shape: BoxShape.circle,
+                ),
+                child: const Icon(Icons.history, color: AppTheme.primary),
+              ),
+              const SizedBox(width: 16),
+              Expanded(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    const Text(
+                      'Workout Session',
+                      style: TextStyle(color: Colors.white, fontWeight: FontWeight.w700, fontSize: 16),
+                    ),
+                    Text(
+                      '${entry.date.day}/${entry.date.month}/${entry.date.year} • ${entry.durationMinutes} mins',
+                      style: const TextStyle(color: Colors.white70, fontSize: 12),
+                    ),
+                  ],
+                ),
+              ),
+              const Icon(Icons.chevron_right, color: Colors.white38),
+            ],
+          ),
+        );
+      }).toList(),
     );
   }
 }
